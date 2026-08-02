@@ -1,0 +1,28 @@
+AUTOMATIC VERSION LOADER
+
+Application: KM Digital Labs Accountant
+Current release: 3.1.0
+
+HOW IT WORKS
+- When the device has internet, the application checks version.json without using the browser cache.
+- The service worker uses the network first for the main page, version.json and version-loader.js.
+- When a newer version number is detected, old caches for this application are deleted.
+- The newest service worker is installed and the page reloads once.
+- Browser records stored in localStorage are not deleted by the update loader.
+- When there is no internet connection, the last downloaded version remains available offline.
+
+UPLOADING THIS VERSION
+1. Delete or overwrite every previous file in this application's hosted folder.
+2. Upload index.html, version-loader.js, version.json, sw.js, manifest.webmanifest and the complete assets folder.
+3. Open the hosted page while connected to the internet.
+4. The application will automatically load the newest version.
+
+CREATING A FUTURE UPDATE
+1. Change the version value in version.json, for example from 3.1.0 to 3.2.0.
+2. Change the app-version meta value in index.html to the same version.
+3. Change the CACHE value in sw.js to a new unique cache name.
+4. Upload all changed files.
+5. Existing online users will receive the update automatically when they open the application.
+
+IMPORTANT
+The two applications must be hosted in separate folders or separate subdomains so each service worker keeps its own scope.
