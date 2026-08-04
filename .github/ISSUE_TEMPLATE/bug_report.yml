@@ -1,0 +1,28 @@
+name: Bug report
+description: Report a reproducible problem in KM Digital Labs Accountant
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: Problem
+      description: What happened and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open...\n2. Select...\n3. Observe..."
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Browser and device
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed all personal and financial information.
+          required: true
